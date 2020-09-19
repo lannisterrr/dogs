@@ -20,7 +20,7 @@ fetch("https://dog.ceo/api/breeds/list/all").then(function(response){
 // async - If we want to use await to handle our promises , then we have to use async function
 // fetch will resolve as soon we hear from the server, like the simple header info.
 
-let timer
+let timer 
 let deleteFirstPhotoDelay
 
 async function start(){
@@ -59,10 +59,13 @@ async function loadByBreed(breed){
         const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
         const data = await response.json()
         createSlideshow(data.message)
+    }else{
+        location.reload();
     }
 }
 
 function createSlideshow(images){
+    
     let currentPosition = 0;
     clearInterval(timer)
     clearInterval(deleteFirstPhotoDelay)
@@ -106,10 +109,28 @@ function createSlideshow(images){
    }
 }
 
-
+var playing = true;
 var stopBtn = document.getElementById('stop');
-stopBtn.addEventListener('click',function(){
-    location.reload();
-    return false;
-    
-})
+
+
+function pauseSlideshow() {
+    stopBtn.innerHTML = 'Play';
+    playing = false;
+    clearInterval(timer);
+}
+
+function playSlideshow() {
+    stopBtn.innerHTML = 'Pause';
+    playing = true;
+    timer =  setInterval(nextSlide,3000); 
+}
+
+
+
+stopBtn.onclick = function() {
+    if(playing) {
+    pauseSlideshow();
+  } else {
+    playSlideshow();
+  }
+};
