@@ -52,3 +52,17 @@ html, body {
     opacity: 1;
     transform: scale(1.08);
   }
+
+  .btn {
+    color: #fff !important;
+    max-width: 78px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ed3330;
+    padding: 20px;
+    border-radius: 5px;
+    display: block;
+    border: none;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    }

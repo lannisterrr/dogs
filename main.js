@@ -107,11 +107,10 @@ function createSlideshow(images){
             currentPosition++
        }    
    }
-}
 
-var playing = true;
-var stopBtn = document.getElementById('stop');
 
+   var stopBtn = document.getElementById('stop');
+   var playing = true;
 
 function pauseSlideshow() {
     stopBtn.innerHTML = 'Play';
@@ -122,10 +121,8 @@ function pauseSlideshow() {
 function playSlideshow() {
     stopBtn.innerHTML = 'Pause';
     playing = true;
-    timer =  setInterval(nextSlide,3000); 
+    timer = setInterval(nextSlide,3000);
 }
-
-
 
 stopBtn.onclick = function() {
     if(playing) {
@@ -134,3 +131,10 @@ stopBtn.onclick = function() {
     playSlideshow();
   }
 };
+
+
+
+}
+
+
+
